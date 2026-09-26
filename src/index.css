@@ -1,0 +1,180 @@
+@import "tailwindcss";
+
+@layer base {
+  :root,
+  .dark {
+    /* Solid Base Canvas */
+    --bg-primary: #18242e;
+    --bg-secondary: #131d25;
+    --bg-tertiary: #0e161c;
+
+    /* Card & Element Surfaces */
+    --clay-surface: #20313e;
+    --clay-surface-hover: #263a49;
+    --clay-surface-active: #1b2934;
+    --clay-surface-inset: #131d25;
+
+    /* Clean Borders */
+    --border-subtle: rgba(255, 255, 255, 0.08);
+    --border-highlight: rgba(255, 255, 255, 0.16);
+
+    /* Typography */
+    --text-primary: #f1f5f9;
+    --text-secondary: #94a3b8;
+    --text-muted: #64748b;
+
+    /* Custom Color Triad */
+    --color-1: #2A7820; /* Forest Emerald */
+    --color-2: #422078; /* Deep Mystic Violet */
+    --color-3: #782056; /* Rich Berry Magenta */
+
+    /* Vibrant Accents */
+    --color-1-light: #4ade80;
+    --color-2-light: #a855f7;
+    --color-3-light: #f43f5e;
+
+    --color-1-tint: rgba(42, 120, 32, 0.28);
+    --color-2-tint: rgba(66, 32, 120, 0.28);
+    --color-3-tint: rgba(120, 32, 86, 0.28);
+
+    /* Triad Gradients */
+    --triad-gradient: linear-gradient(135deg, #2A7820 0%, #422078 50%, #782056 100%);
+  }
+}
+
+/* Zero Shadow - Flat Architectural Cards */
+.clay-card {
+  background-color: var(--clay-surface);
+  border-radius: 1.5rem;
+  border: 1px solid var(--border-subtle);
+  box-shadow: none !important;
+  transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.clay-card-interactive {
+  background-color: var(--clay-surface);
+  border-radius: 1.5rem;
+  border: 1px solid var(--border-subtle);
+  box-shadow: none !important;
+  transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.clay-card-interactive:hover {
+  transform: translateY(-2px);
+  background-color: var(--clay-surface-hover);
+  border-color: var(--border-highlight);
+  box-shadow: none !important;
+}
+
+.clay-card-interactive:active {
+  transform: translateY(1px);
+  background-color: var(--clay-surface-active);
+  box-shadow: none !important;
+}
+
+/* Flat Inset / Sunken Well (Search bars, code blocks, stats) */
+.clay-inset {
+  background-color: var(--clay-surface-inset);
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: none !important;
+}
+
+/* Flat Tactile Buttons */
+.clay-btn {
+  background-color: var(--clay-surface);
+  border-radius: 0.875rem;
+  border: 1px solid var(--border-subtle);
+  box-shadow: none !important;
+  transition: transform 0.15s ease, background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.clay-btn:hover {
+  transform: translateY(-1px);
+  background-color: var(--clay-surface-hover);
+  border-color: var(--border-highlight);
+  box-shadow: none !important;
+}
+
+.clay-btn:active {
+  transform: translateY(1px);
+  background-color: var(--clay-surface-active);
+  box-shadow: none !important;
+}
+
+/* Flat Pill Badges */
+.clay-pill {
+  border-radius: 9999px;
+  border: 1px solid var(--border-subtle);
+  box-shadow: none !important;
+}
+
+/* Colored Variants */
+.clay-color-1 {
+  background: linear-gradient(135deg, #328f26, #24651b);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: none !important;
+}
+
+.clay-color-2 {
+  background: linear-gradient(135deg, #532997, #371a64);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: none !important;
+}
+
+.clay-color-3 {
+  background: linear-gradient(135deg, #95286b, #621946);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: none !important;
+}
+
+/* Solid Canvas Body */
+body {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  background-color: #18242e !important;
+  color: var(--text-primary);
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+code, pre, kbd {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Custom Scrollbar without shadow */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #18242e;
+}
+::-webkit-scrollbar-thumb {
+  background: #273b4b;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #344f64;
+}
+
+/* Sparkle keyframes */
+@keyframes sparkle-grow {
+  0% { transform: scale(0) rotate(0deg); opacity: 0; }
+  50% { transform: scale(1) rotate(90deg); opacity: 1; }
+  100% { transform: scale(0) rotate(180deg); opacity: 0; }
+}
+
+.animate-sparkle {
+  animation: sparkle-grow 700ms forwards ease-in-out;
+}
+
+/* Gradient text shift */
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-gradient-shift {
+  background-size: 200% 200%;
+  animation: gradient-shift 6s ease infinite;
+}
